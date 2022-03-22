@@ -1,6 +1,7 @@
 package co.edu.udea.chopeviverobackend.entites.humidity;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "tbl_humidity_time")
@@ -15,5 +16,7 @@ public class HumidityHistoryEntity {
     private HumiditySensorEntity sensor;
 
     private Double humidity;
+
+    private Date time;
 
 }

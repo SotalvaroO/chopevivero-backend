@@ -1,6 +1,7 @@
 package co.edu.udea.chopeviverobackend.entites.temperature;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "tbl_temperature_time")
@@ -15,5 +16,7 @@ public class TemperatureHistoryEntity {
     private TemperatureSensorEntity sensor;
 
     private Double temperature;
+
+    private Date time;
 
 }

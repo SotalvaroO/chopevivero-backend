@@ -19,7 +19,10 @@ public class RadiationSensorEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(unique = true)
     private String serial;
+
     private String name;
 
 }

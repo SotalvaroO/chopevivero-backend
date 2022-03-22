@@ -4,10 +4,15 @@ import co.edu.udea.chopeviverobackend.entites.temperature.TemperatureSensorEntit
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 /*
 Se hará uso de este repositorio para crear o eliminar nuevos sensores de temperatura
 */
 
 @Repository
 public interface ITemperatureSensorRepository extends JpaRepository<TemperatureSensorEntity, Long> {
+
+    Optional<TemperatureSensorEntity> findBySerial(String serial);
+
 }

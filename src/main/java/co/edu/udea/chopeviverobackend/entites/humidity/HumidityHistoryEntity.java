@@ -1,5 +1,6 @@
 package co.edu.udea.chopeviverobackend.entites.humidity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,6 +24,7 @@ public class HumidityHistoryEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "sensor_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private HumiditySensorEntity sensor;
 
     private Double humidity;

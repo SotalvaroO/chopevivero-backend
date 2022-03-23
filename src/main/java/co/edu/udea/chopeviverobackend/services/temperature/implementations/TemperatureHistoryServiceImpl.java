@@ -21,6 +21,11 @@ public class TemperatureHistoryServiceImpl implements ITemperatureHistoryService
     }
 
     @Override
+    public TemperatureHistoryEntity findById(Long id) {
+        return _temperatureLogRepository.findById(id).orElse(null);
+    }
+
+    @Override
     public TemperatureHistoryEntity create(TemperatureHistoryEntity log) {
         return _temperatureLogRepository.save(log);
     }

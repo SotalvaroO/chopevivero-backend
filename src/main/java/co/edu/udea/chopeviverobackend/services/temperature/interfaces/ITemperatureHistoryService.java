@@ -8,6 +8,8 @@ public interface ITemperatureHistoryService {
 
     List<TemperatureHistoryEntity> findAll();
 
+    TemperatureHistoryEntity findById(Long id);
+
     TemperatureHistoryEntity create(TemperatureHistoryEntity log);
 
 }

@@ -12,7 +12,6 @@ import java.util.Date;
 @Getter
 @Setter
 @AllArgsConstructor
-@NoArgsConstructor
 
 @Entity
 @Table(name = "tbl_temperature_time")
@@ -24,11 +23,14 @@ public class TemperatureHistoryEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "sensor_id")
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private TemperatureSensorEntity sensor;
 
     private Double temperature;
 
+    @Temporal(TemporalType.TIMESTAMP)
     private Date time;
 
+    public TemperatureHistoryEntity() {
+        this.time = new Date();
+    }
 }

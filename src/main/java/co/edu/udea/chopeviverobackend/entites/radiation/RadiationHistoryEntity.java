@@ -12,7 +12,6 @@ import java.util.Date;
 @Getter
 @Setter
 @AllArgsConstructor
-@NoArgsConstructor
 
 @Entity
 @Table(name = "tbl_radiation_time")
@@ -29,6 +28,11 @@ public class RadiationHistoryEntity {
 
     private Double radiation;
 
+    @Temporal(TemporalType.TIMESTAMP)
     private Date time;
+
+    public RadiationHistoryEntity() {
+        this.time = new Date();
+    }
 
 }

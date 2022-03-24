@@ -2,9 +2,7 @@ package co.edu.udea.chopeviverobackend.utils.mappers.temperature;
 
 import co.edu.udea.chopeviverobackend.dtos.temperature.TemperatureHistoryRequestDto;
 import co.edu.udea.chopeviverobackend.dtos.temperature.TemperatureHistoryResponseDto;
-import co.edu.udea.chopeviverobackend.dtos.temperature.TemperatureSensorDto;
 import co.edu.udea.chopeviverobackend.entites.temperature.TemperatureHistoryEntity;
-import co.edu.udea.chopeviverobackend.services.temperature.interfaces.ITemperatureHistoryService;
 import co.edu.udea.chopeviverobackend.services.temperature.interfaces.ITemperatureSensorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

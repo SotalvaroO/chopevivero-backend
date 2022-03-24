@@ -44,8 +44,8 @@ public class TemperatureSensorController {
     }
 
     @GetMapping(value = "/{serial}")
-    public ResponseEntity<TemperatureSensorDto> getSensorById(@PathVariable("serial") String id) {
-        TemperatureSensorEntity sensor = _sensorService.findBySerial(id);
+    public ResponseEntity<TemperatureSensorDto> getSensorById(@PathVariable("serial") String serial) {
+        TemperatureSensorEntity sensor = _sensorService.findBySerial(serial);
         if (sensor != null) {
             return ResponseEntity.ok(_sensorMapper.modelToDto(sensor));
         }
@@ -67,8 +67,7 @@ public class TemperatureSensorController {
     public ResponseEntity<TemperatureHistoryResponseDto> createTemperatureLog(@RequestBody TemperatureHistoryRequestDto logDto){
         TemperatureSensorEntity sensor = _sensorService.findBySerial(logDto.getSensorSerial());
         if (sensor != null){
-            TemperatureHistoryEntity responseDB =  _logsMapper.DtoToModel(logDto);
-            TemperatureHistoryEntity responseLog = _logsService.create(responseDB);
+            TemperatureHistoryEntity responseLog = _logsService.create(_logsMapper.DtoToModel(logDto));
             TemperatureHistoryResponseDto responseDto = _logsMapper.ModelToDto(responseLog);
             return ResponseEntity.status(HttpStatus.CREATED).body(responseDto);
         }

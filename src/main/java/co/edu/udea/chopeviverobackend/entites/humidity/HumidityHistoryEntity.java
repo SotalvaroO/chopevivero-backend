@@ -12,7 +12,6 @@ import java.util.Date;
 @Getter
 @Setter
 @AllArgsConstructor
-@NoArgsConstructor
 
 @Entity
 @Table(name = "tbl_humidity_time")
@@ -29,6 +28,11 @@ public class HumidityHistoryEntity {
 
     private Double humidity;
 
+    @Temporal(TemporalType.TIMESTAMP)
     private Date time;
+
+    public HumidityHistoryEntity() {
+        this.time = new Date();
+    }
 
 }

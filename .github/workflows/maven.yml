@@ -5,9 +5,9 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ master ]
+    branches: [ dev ]
   pull_request:
-    branches: [ master ]
+    branches: [ dev ]
 
 jobs:
   build:
@@ -24,3 +24,12 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - name: Deploy to Heroku
+      uses: akhileshns/heroku-deploy@v3.12.12
+      with:
+        needs : Build with Maven
+        heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+        heroku_app_name: "chopevivero-backend"
+        heroku_email: "santiago.otalvaroo@udea.edu.co"
+        #healthcheck: "https://chopevivero-backend.herokuapp.com/healthcheck"
+        rollbackonhealthcheckfailed: true

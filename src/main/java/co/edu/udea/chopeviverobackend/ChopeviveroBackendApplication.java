@@ -8,28 +8,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
-public class ChopeviveroBackendApplication implements CommandLineRunner {
+public class ChopeviveroBackendApplication {
 
 
-	@Autowired
-	private MessagingService messagingService;
+    @Autowired
+    private MessagingService messagingService;
 
-	@Autowired
-	private ConfigurableApplicationContext context;
 
-	public static void main(String[] args) {
-		SpringApplication.run(ChopeviveroBackendApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(ChopeviveroBackendApplication.class, args);
+    }
 
-	@Override
-	public void run(String... args) throws Exception {
-		final String topic = "/#";
-
-		messagingService.subscribe(topic);
-
-		//messagingService.publish(topic, "Hi\nThis is a sample message published to topic roytuts/topic/event", 0, false);
-
-		//context.close();
-	}
 
 }

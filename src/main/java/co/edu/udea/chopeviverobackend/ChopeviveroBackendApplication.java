@@ -11,10 +11,6 @@ import org.springframework.context.ConfigurableApplicationContext;
 public class ChopeviveroBackendApplication {
 
 
-    @Autowired
-    private MessagingService messagingService;
-
-
     public static void main(String[] args) {
         SpringApplication.run(ChopeviveroBackendApplication.class, args);
     }

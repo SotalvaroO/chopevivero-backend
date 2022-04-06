@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
-
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 @RestController
 @RequestMapping(value = "/api/humidity")
 public class HumiditySensorController {
